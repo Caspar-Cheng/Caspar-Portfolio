@@ -1,11 +1,17 @@
 const express = require("express");
 const app = express();
-const ejs = require("ejs")
+
 
 app.set("view engine", "ejs");
+
 app.use(express.static("public"));
 
+
 app.get("/", function(req, res){
+    res.render("home");
+});
+
+app.get("/about", function(req, res){
     res.render("about");
 });
 
@@ -15,6 +21,10 @@ app.get("/js-projects", function(req, res){
 
 app.get("/py-projects", function(req, res){
     res.render("py-projects");
+});
+
+app.get("/contact", function(req, res){
+    res.render("contact");
 });
 
 app.listen(process.env.PORT || 3000, function(){
